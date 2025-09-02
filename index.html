@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Codapes</title>
+		<style>
+			/* Reset & full page style */
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				overflow: hidden;
+			}
+			iframe {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Full-page iframe with your proxy -->
+		<iframe
+			src="https://mr4icy5knkswwj2gqu4wjuflr2fxlf.patelagri.in/"
+			id="volvFrame"
+		></iframe>
+
+		<script>
+			// Example: remove unwanted element (.w-banner) after load
+			const iframe = document.getElementById("volvFrame");
+			iframe.addEventListener("load", () => {
+				try {
+					const innerDoc =
+						iframe.contentDocument || iframe.contentWindow.document;
+					const banner = innerDoc.querySelector(".w-banner");
+					if (banner) banner.remove();
+				} catch (err) {
+					console.warn(
+						"Cannot modify inside iframe due to cross-origin restrictions."
+					);
+				}
+			});
+		</script>
+	</body>
+</html>
